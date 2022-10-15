@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id') // foreighIdとして、owner_idと紐付け
+            $table->string('name');
+            $table->text('information');
+            $table->unsignedInteger('price');
+            $table->boolean('is_selling');
+            $table->integer('sort_order')->nullable();
+            $table->foreignId('shop_id')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->string('name');
-            $table->text('information');
-            $table->string('filename');
-            $table->boolean('is_selling');
+            $table->foreignId('images')
+            ->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +38,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
-        Schema::dropIfExists('shops');
     }
-};
+}
