@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\owner;
+use Illuminate\Database\product;
 
 class Shop extends Model
 {
@@ -13,6 +14,11 @@ class Shop extends Model
     public function Owner()
     {
         return $this->belongsTo(Owner::class);
+    }
+
+    public function Product()
+    {
+        return $this->hasMany(Product::class);
     }
 
     protected $filable = [
