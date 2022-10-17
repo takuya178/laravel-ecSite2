@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          <button type="button" onclick="location.href='{{ route('owner.products.index') }}' ">商品一覧へ</button>
+        </h2>
     </x-slot>
   
     <div class="py-12">
