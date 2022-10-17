@@ -24,6 +24,8 @@ class CreateProductsTable extends Migration
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->foreignId('secondary_category_id')
+            ->constrained();
             $table->foreignId('images')
             ->nullable();
             $table->timestamps();

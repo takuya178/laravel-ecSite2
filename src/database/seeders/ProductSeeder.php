@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
                 'shop_id' => 1,
                 'name' => 'ロキソニン',
                 'information' => '痛みを和らげる薬です',
+                'secondary_category_id' => 1,
                 'price' => 1000,
                 'is_selling' => true,
                 'sort_order' => null,
